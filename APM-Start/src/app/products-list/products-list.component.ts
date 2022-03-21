@@ -87,4 +87,8 @@ export class ProductsListComponent implements OnInit {
     toggleImage(): void {
         this.showImages = !this.showImages;
     }
+
+    messageReceived(message: string): void {
+        this.pageTitle = message;
+    }
 }
