@@ -5,10 +5,10 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <input type="text" [(ngModel)]="filter" />
+                <input type="text" [(ngModel)]="listFilter" />
             </div>
             <div class="col-12">
-                Filtered by : {{filter}}
+                Filtered by : {{listFilter}}
             </div>
             <div class="col-12">
                 <button (click)="toggleImage()">
@@ -29,14 +29,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of filteredProducts">
                         <td><img *ngIf="showImages"
                                  [src]="product.imageUrl"
                                  [title]="product.productName"
                                  [style.width.px]="imageWidth"
                                  [style.margin.px]="imageMargin" /></td>
                         <td>{{product.productName}}</td>
-                        <td>{{product.productCode | lowercase}}</td>
+                        <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
                         <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
                         <td>{{product.starRating}}</td>
                     </tr>
