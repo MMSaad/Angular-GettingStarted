@@ -1,1 +1,13 @@
-<p>product-detail works!</p>
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <div class="card-body">
+        {{product?.productName}}
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary" (click)="goBack()">
+            Back
+        </button>
+    </div>
+</div>

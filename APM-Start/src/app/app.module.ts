@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products-list/product-detail/product-detail.component';
+import { ProductDetailGuard } from './products-list/product-detail.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { ProductDetailComponent } from './products-list/product-detail/product-d
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductsListComponent },
-      { path: 'product/:id', component: ProductDetailComponent },
+      {
+        path: 'products/:id',
+        canActivate: [ProductDetailGuard],
+        component: ProductDetailComponent
+      },
       {path : 'welcome', component: WelcomeComponent},
       { path: '', redirectTo: '/welcome', pathMatch: 'full' },
       { path: '**', redirectTo: '/welcome', pathMatch: 'full' }
