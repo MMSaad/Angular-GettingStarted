@@ -1,6 +1,13 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!! :)
-  </h1>
-  ... Starter Files ...
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand"
+     href="/">APM</a>
+  
+    <a routerLink="/welcome"
+        class="nav-link">Home</a>
+    <a routerLink="/products"
+        class="nav-link">Products</a>
+  
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
